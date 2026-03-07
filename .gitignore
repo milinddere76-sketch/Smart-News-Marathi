@@ -1,0 +1,48 @@
+# OS files
+.DS_Store
+Thumbs.db
+db.sqlite3
+
+# Node.js
+node_modules/
+.next/
+out/
+build/
+dist/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Media Files (Don't push large news clips)
+backend/media/audio/*
+backend/media/video/*
+!backend/media/audio/.gitkeep
+!backend/media/video/.gitkeep
+media/ads/*
+!media/ads/.gitkeep
+
+# Docker
+.docker_data/
+postgres_data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

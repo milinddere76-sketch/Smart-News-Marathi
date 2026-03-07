@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: smart-news-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-smart_news_marathi}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - news-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: smart-news-redis
+    networks:
+      - news-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: smart-news-backend
+    volumes:
+      - ./backend:/app
+      - news-media:/app/media
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-postgres}@db:5432/${DB_NAME:-smart_news_marathi}
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+    networks:
+      - news-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: smart-news-frontend
+    ports:
+      - "3005:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - news-network
+
+  stream-engine:
+    build:
+      context: ./stream-engine
+      dockerfile: Dockerfile
+    container_name: smart-news-streamer
+    volumes:
+      - ./stream-engine:/app
+      - news-media:/app/media
+    environment:
+      - BACKEND_URL=http://backend:8000
+      - YOUTUBE_STREAM_KEY=${YOUTUBE_STREAM_KEY}
+    depends_on:
+      - backend
+    networks:
+      - news-network
+
+networks:
+  news-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  news-media:

@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+requests
+python-multipart
+celery
+redis
+python-dotenv
+aiohttp
+google-generativeai
+feedparser
+edge-tts
+ffmpeg-python

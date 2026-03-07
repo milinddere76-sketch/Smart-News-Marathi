@@ -1,0 +1,4 @@
+requests
+python-dotenv
+aiohttp
+# Add other streaming/media libraries as needed
