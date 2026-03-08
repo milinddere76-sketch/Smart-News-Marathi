@@ -1,4 +1,4 @@
-app = "snm-fe-priyansh"
+app = "snm-fe-priyansh-dere"
 primary_region = "bom"
 
 [build]
@@ -12,7 +12,7 @@ primary_region = "bom"
   min_machines_running = 0
 
 [env]
-  NEXT_PUBLIC_API_URL = "https://snm-be-priyansh.fly.dev"
+  NEXT_PUBLIC_API_URL = "https://snm-be-priyansh-dere.fly.dev"
 
 [[vm]]
   memory = "1gb"
