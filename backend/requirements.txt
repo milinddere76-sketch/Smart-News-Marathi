@@ -1,5 +1,7 @@
+# FastAPI
 fastapi
 uvicorn
+gunicorn
 sqlalchemy
 psycopg2-binary
 pydantic

@@ -9,7 +9,15 @@ logger = logging.getLogger(__name__)
 
 # Google News RSS for Marathi News
 # HL = Marathi (mr), GL = India (IN)
-MARATHI_NEWS_RSS = "https://news.google.com/rss/search?q=when:24h&hl=mr&gl=IN&ceid=IN:mr"
+# Google News RSS for Marathi News
+# Primary: Top Stories
+MARATHI_NEWS_RSS = "https://news.google.com/rss?hl=mr&gl=IN&ceid=IN:mr"
+# Fallbacks: Maharashtra, India, World
+FALLBACK_FEEDS = [
+    "https://news.google.com/rss/headlines/section/topic/NATION.mr_in?hl=mr&gl=IN&ceid=IN:mr",
+    "https://news.google.com/rss/headlines/section/geo/Maharashtra?hl=mr&gl=IN&ceid=IN:mr",
+    "https://news.google.com/rss/search?q=Marathi+News&hl=mr&gl=IN&ceid=IN:mr"
+]
 
 class NewsScraper:
     def __init__(self, rss_url: str = MARATHI_NEWS_RSS):
@@ -24,12 +32,20 @@ class NewsScraper:
             logger.info(f"Fetching news from {self.rss_url}")
             feed = feedparser.parse(self.rss_url)
             
+            # If primary feed fails, try fallbacks
+            if not feed.entries:
+                for fallback in FALLBACK_FEEDS:
+                    logger.info(f"Primary feed empty, trying fallback: {fallback}")
+                    feed = feedparser.parse(fallback)
+                    if feed.entries:
+                        break
+
             news_items = []
             for entry in feed.entries:
                 news_items.append({
                     "title": entry.title,
                     "link": entry.link,
-                    "published": entry.published,
+                    "published": getattr(entry, "published", "Unknown"),
                     "source": entry.source.get("title", "Unknown") if hasattr(entry, "source") else "Unknown"
                 })
             

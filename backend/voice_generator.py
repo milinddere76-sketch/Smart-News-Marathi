@@ -27,8 +27,22 @@ class VoiceGenerator:
         output_path = os.path.join(self.output_dir, filename)
         
         try:
-            logger.info(f"Generating voice for: {text[:50]}...")
-            communicate = edge_tts.Communicate(text, self.voice)
+            # Construct SSML for professional news anchor prosody
+            # -10% rate (slower for clarity), -5Hz pitch (deeper tone), +10% volume
+            ssml_text = f"""
+            <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='mr-IN'>
+                <voice name='{self.voice}'>
+                    <break time='500ms'/>
+                    <prosody rate='-10%' pitch='-5Hz' volume='+10%'>
+                        {text}
+                    </prosody>
+                    <break time='500ms'/>
+                </voice>
+            </speak>
+            """
+            
+            logger.info(f"Generating professional voice (SSML) for: {text[:50]}...")
+            communicate = edge_tts.Communicate(ssml_text, self.voice)
             await communicate.save(output_path)
             logger.info(f"Audio saved to {output_path}")
             return output_path
