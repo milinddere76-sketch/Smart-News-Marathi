@@ -30,12 +30,20 @@ logger = logging.getLogger(__name__)
 # ── Studio Design Constants ────────────────────────────────────────────────────
 W, H  = 1920, 1080
 FPS   = 30
-# Windows-friendly font fallback
-if os.name == "nt":
-    # On Windows, FFmpeg can usually find "Arial" if specified directly
-    FONT = "Arial"
-else:
-    FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+def get_font_path():
+    if os.name == "nt":
+        paths = [
+            "C:/Windows/Fonts/Nirmala.ttf",
+            "C:/Windows/Fonts/arial.ttf",
+            "C:/Windows/Fonts/calibri.ttf"
+        ]
+        for p in paths:
+            if os.path.exists(p):
+                return p.replace(":", "\\:")
+        return "Arial"
+    return "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+FONT = get_font_path()
 
 TOP_BAR_H  = 80
 TICKER_H   = 52

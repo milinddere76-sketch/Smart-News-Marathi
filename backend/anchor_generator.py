@@ -31,11 +31,20 @@ ANCHOR_PHOTO  = os.path.join(ASSETS_DIR, "anchor.jpg")
 SADTALKER_DIR = os.path.join(os.path.dirname(__file__), "SadTalker")
 OUTPUT_DIR    = "media/anchor"
 
-# Windows-friendly font fallback
-if os.name == "nt":
-    FONT = "Arial"
-else:
-    FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+def get_font_path():
+    if os.name == "nt":
+        paths = [
+            "C:/Windows/Fonts/Nirmala.ttf",
+            "C:/Windows/Fonts/arial.ttf",
+            "C:/Windows/Fonts/calibri.ttf"
+        ]
+        for p in paths:
+            if os.path.exists(p):
+                return p.replace(":", "\\:")
+        return "Arial"
+    return "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+FONT = get_font_path()
 
 # ── Studio Dimensions ──────────────────────────────────────────────────────────
 ANCHOR_W = 640       # left zone width
@@ -141,6 +150,35 @@ class AnchorGenerator:
         ]
         subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
+    def _run_static_photo_anchor(self, audio_path: str, output_path: str) -> str:
+        """
+        Creates a subtle zoom animation on the static photo.
+        Better than a silhouette if SadTalker is unavailable.
+        """
+        try:
+            duration = self._audio_duration(audio_path)
+            # Subtle zoom filter
+            zoom_vf = (
+                f"zoompan=z='min(zoom+0.0005,1.5)':d={duration*30}:s={ANCHOR_W}x{ANCHOR_H}:fps=30,"
+                f"drawtext=text='AI ANCHOR':fontfile='{FONT}':fontsize=22:fontcolor=white@0.8:x=20:y=20,"
+                f"drawtext=text='VIRTUAL':fontfile='{FONT}':fontsize=14:fontcolor=gold@0.8:x=20:y=45"
+            )
+            
+            cmd = [
+                FFMPEG_EXE, "-y",
+                "-loop", "1", "-i", ANCHOR_PHOTO,
+                "-vf", zoom_vf,
+                "-t", str(duration),
+                "-c:v", "libx264", "-preset", "fast", "-crf", "22",
+                "-an",
+                output_path
+            ]
+            logger.info("Rendering static photo anchor...")
+            subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            return output_path if os.path.exists(output_path) else ""
+        except Exception:
+            return ""
+
     # ── FFmpeg Silhouette (Option 2) ───────────────────────────────────────────
 
     def _run_ffmpeg_silhouette(self, audio_path: str, output_path: str) -> str:
@@ -154,8 +192,10 @@ class AnchorGenerator:
           - Channel slogan text
         """
         try:
-            duration = self._audio_duration(audio_path)
-            if duration <= 0: duration = 10.0
+            # If we have a photo but SadTalker failed/is missing,
+            # we can create a nice Ken-Burns style static zoom instead of a silhouette.
+            if os.path.exists(ANCHOR_PHOTO):
+                return self._run_static_photo_anchor(audio_path, output_path)
 
             # Silhouette colours
             BG    = "0x0a0f1e"
