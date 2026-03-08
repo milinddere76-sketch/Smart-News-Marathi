@@ -31,7 +31,7 @@ Set-Location "$ROOT\backend"
 
 Write-Host "--- 5. Deploying Frontend ---" -ForegroundColor Cyan
 Set-Location "$ROOT\frontend"
-& $FLY deploy --remote-only --detach
+& $FLY deploy --remote-only --detach --build-arg NEXT_PUBLIC_API_URL="https://$BE_APP.fly.dev"
 
 Write-Host "--- DONE! ---" -ForegroundColor Green
 Write-Host "Once finished, your site will be at: https://$FE_APP.fly.dev"

@@ -5,7 +5,7 @@ from script_writer import NewsScriptWriter
 from voice_generator import VoiceGenerator
 from video_generator import VideoGenerator
 from anchor_generator import AnchorGenerator
-from typing import List
+from fastapi.middleware.cors import CORSMiddleware
 import uuid
 import os
 import asyncio
@@ -16,6 +16,15 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Smart News Marathi API")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins for production simplicity, or specify your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Ensure media directory exists
 os.makedirs("media/video", exist_ok=True)
