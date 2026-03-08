@@ -27,11 +27,11 @@ Write-Host "--- 3. Creating Fly Apps ---" -ForegroundColor Cyan
 
 Write-Host "--- 4. Deploying Backend ---" -ForegroundColor Cyan
 Set-Location "$ROOT\backend"
-& $FLY deploy --remote-only --nowait
+& $FLY deploy --remote-only --detach
 
 Write-Host "--- 5. Deploying Frontend ---" -ForegroundColor Cyan
 Set-Location "$ROOT\frontend"
-& $FLY deploy --remote-only --nowait
+& $FLY deploy --remote-only --detach
 
 Write-Host "--- DONE! ---" -ForegroundColor Green
 Write-Host "Once finished, your site will be at: https://$FE_APP.fly.dev"
