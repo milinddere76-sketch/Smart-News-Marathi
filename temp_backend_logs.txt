@@ -1,0 +1,413 @@
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]    return _bootstrap._gcd_import(name[level:], package, level)
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "/app/main.py", line 35, in <module>
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]    app.mount("/admin-ui", StaticFiles(directory="../frontend"), name="admin-ui")
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  File "/usr/local/lib/python3.11/site-packages/starlette/staticfiles.py", line 56, in __init__
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]    raise RuntimeError(f"Directory '{directory}' does not exist")
+[2m2026-03-10T04:59:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]RuntimeError: Directory '../frontend' does not exist
+[2m2026-03-10T04:59:06Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 1
+[2m2026-03-10T04:59:06Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2026-03-10T04:59:06Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][   41.794594] reboot: Restarting system
+[2m2026-03-10T04:59:06Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]machine has reached its max restart count of 10
+[2m2026-03-10T05:00:02Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Pulling container image registry.fly.io/snm-be-priyansh-dere@sha256:ed8496f177311e54b2b34cca7d9ea5f4755533d79f87e8cbed1a59b610503f4a
+[2m2026-03-10T05:00:04Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Successfully prepared image registry.fly.io/snm-be-priyansh-dere@sha256:ed8496f177311e54b2b34cca7d9ea5f4755533d79f87e8cbed1a59b610503f4a (1.380186454s)
+[2m2026-03-10T05:00:05Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Configuring firecracker
+[2m2026-03-10T05:06:17Z[0m proxy[83d475c7d74718] [32mbom[0m [[34minfo[0m]Starting machine
+[2m2026-03-10T05:06:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:06:17.268005776 [01KKB1VJN166RGZ9YP3JWSQRGX:main] Running Firecracker v1.12.1
+[2m2026-03-10T05:06:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:06:17.268177113 [01KKB1VJN166RGZ9YP3JWSQRGX:main] Listening on API socket ("/fc.sock").
+[2m2026-03-10T05:06:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting init (commit: 350f2667)...
+[2m2026-03-10T05:06:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Preparing to run: `uvicorn main:app --host 0.0.0.0 --port 8000` as root
+[2m2026-03-10T05:06:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2026-03-10T05:06:18Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Machine started in 1.232s
+[2m2026-03-10T05:06:18Z[0m proxy[83d475c7d74718] [32mbom[0m [[34minfo[0m]machine started in 1.272129067s
+[2m2026-03-10T05:06:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026/03/10 05:06:18 INFO SSH listening listen_address=[fdaa:4d:6f41:a7b:178:429c:78f5:2]:22
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]/app/script_writer.py:2: FutureWarning:
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]All support for the `google.generativeai` package has ended. It will no longer be receiving
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]See README for more details:
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  import google.generativeai as genai
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:AnchorGenerator initialised — mode: FFmpeg silhouette
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Started server process [646]
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application startup.
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Startup complete - Auto news generation and Cleanup started.
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting auto news generation cycle...
+[2m2026-03-10T05:06:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Breaking News news from https://news.google.com/rss?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:06:21Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Maharashtra news from https://news.google.com/rss/headlines/section/geo/Maharashtra?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:06:22Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching India news from https://news.google.com/rss/headlines/section/topic/NATION.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:06:23Z[0m proxy[83d475c7d74718] [32mbom[0m [[34minfo[0m]waiting for machine to be reachable on 0.0.0.0:8000 (waited 5.133987194s so far)
+[2m2026-03-10T05:06:23Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching World news from https://news.google.com/rss/headlines/section/topic/WORLD.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:06:24Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Business news from https://news.google.com/rss/headlines/section/topic/BUSINESS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:06:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Technology news from https://news.google.com/rss/headlines/section/topic/TECHNOLOGY.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:06:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Entertainment news from https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2merror.message=[0m"failed to connect to machine: gave up after 15 attempts (in 8.140677921s)" [2m2026-03-10T05:06:26Z[0m proxy[83d475c7d74718] [32mbom[0m [[31merror[0m]
+[2merror.message=[0m"instance refused connection. is your app listening on 0.0.0.0:8000? make sure it is not only listening on 127.0.0.1 (hint: look at your startup logs, servers often print the address they are listening on)" [2m2026-03-10T05:06:26Z[0m proxy[83d475c7d74718] [32mbom[0m [[31merror[0m]
+[2m2026-03-10T05:06:27Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Sports news from https://news.google.com/rss/headlines/section/topic/SPORTS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:06:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Successfully fetched 21 total categorized news items.
+[2m2026-03-10T05:06:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Processing: Crude Oil Price: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com
+[2m2026-03-10T05:06:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 1/3)...
+[2m2026-03-10T05:06:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:06:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:Error in cleanup_old_files: name 'time' is not defined
+[2m2026-03-10T05:06:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application startup complete.
+[2m2026-03-10T05:06:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2m2026-03-10T05:06:29Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 1.65s... (Attempt 1/3)
+[2m2026-03-10T05:06:31Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 2/3)...
+[2m2026-03-10T05:06:31Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 2.68s... (Attempt 2/3)
+[2m2026-03-10T05:06:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 3/3)...
+[2m2026-03-10T05:06:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 4.51s... (Attempt 3/3)
+[2m2026-03-10T05:06:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Using hard-coded Marathi news template fallback.
+[2m2026-03-10T05:06:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Generating professional voice (SSML) for: नमस्कार, आपण पाहत आहात आजच्या मुख्य बातम्या...
+[2m2026-03-10T05:06:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Cr...
+[2m2026-03-10T05:06:46Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Audio saved to media/audio/news_82f13084511b4651b5d05765679ae3c6.mp3
+[2m2026-03-10T05:06:46Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Generating AI anchor clip (Male: False)...
+[2m2026-03-10T05:06:53Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:Rendering FFmpeg silhouette anchor...
+[2m2026-03-10T05:07:16Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:✅ FFmpeg silhouette anchor: /app/media/anchor/anchor_de09718d871245a4ae30feaf316cf9c4.mp4
+[2m2026-03-10T05:07:16Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:✅ Anchor clip ready: anchor_de09718d871245a4ae30feaf316cf9c4.mp4
+[2m2026-03-10T05:07:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Compositing studio clip | anchor=YES | duration=67.2s
+[2m2026-03-10T05:07:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Anchor file detected: /app/media/anchor/anchor_de09718d871245a4ae30feaf316cf9c4.mp4
+[2m2026-03-10T05:07:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:FFmpeg Command: ffmpeg -y -f lavfi -i color=c=black:s=1920x1080:r=30:d=67.2 -stream_loop -1 -i /app/media/anchor/anchor_de09718d871245a4ae30feaf316cf9c4.mp4 -i /app/media/audio/news_82f13084511b4651b5d05765679ae3c6.mp3 -filter_complex [0:v]copy[canvas];[canvas]drawbox=x=0:y=0:w=1920:h=1080:color=0x0a0f1e:t=fill,drawbox=x=0:y=0:w=1920:h=80:color=0xcc0000:t=fill,drawbox=x=0:y=80:w=1920:h=4:color=0xf5a623:t=fill,drawtext=text='स्मार्ट न्यूज मराठी':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=24:y=(80-text_h)/2,drawtext=text='● LIVE':fontfile='Arial':fontsize=26:fontcolor=0xf5a623:box=1:boxcolor=0x000000@0.45:boxborderw=10:x=(1920/2-text_w/2):y=(80-text_h)/2,drawtext=text='05\:07  10 Mar 2026':fontfile='Arial':fontsize=24:fontcolor=0xffffff@0.85:x=(1920-text_w-24):y=(80-text_h)/2,drawbox=x=0:y=808:w=1920:h=220:color=0x0a0f1e@0.92:t=fill,drawbox=x=0:y=808:w=1920:h=5:color=0xcc0000:t=fill,drawbox=x=0:y=813:w=320:h=75:color=0xcc0000:t=fill,drawtext=text='BREAKING NEWS':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=16:y=838,drawtext=text='Crude Oil Price\: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=340:y=823,drawtext=text='सत्य · निर्भय · निष्पक्ष':fontfile='Arial':fontsize=22:fontcolor=0xf5a623@0.9:x=340:y=878,drawbox=x=0:y=1028:w=1920:h=52:color=0x0d0d0d:t=fill,drawbox=x=0:y=1028:w=210:h=52:color=0xcc0000:t=fill,drawtext=text='ताज्या बातम्या':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=14:y=1039,drawtext=text='  Smart News Marathi  ●  Smart News Marathi  ':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=1920-mod(t*180\,1920+text_w):y=1039,drawbox=x=0:y=1028:w=1920:h=3:color=0xf5a623:t=fill[bg];[1:v]scale=640:948:force_original_aspect_ratio=decrease,pad=640:948:(ow-iw)/2:(oh-ih)/2:color=0x080d18[av];[bg][av]overlay=0:80[vout] -map [vout] -map 2:a -c:v libx264 -preset fast -b:v 6800k -maxrate 6800k -minrate 6800k -bufsize 13600k -x264-params nal-hrd=cbr -c:a aac -b:a 128k -ar 44100 -t 67.2 -movflags +faststart media/video/final_df04fc914f4642fdbc00ffc7cfd4cd7c.mp4
+[2m2026-03-10T05:07:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Running FFmpeg studio compositor...
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][   61.294308] Out of memory: Killed process 677 (ffmpeg) total-vm:1239176kB, anon-rss:311328kB, file-rss:128kB, shmem-rss:0kB, UID:0 pgtables:1272kB oom_score_adj:0
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:video_generator:FFmpeg failed with code -9
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:video_generator:FFmpeg stderr: bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=cbr mbtree=1 bitrate=6800 ratetol=1.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 vbv_maxrate=6800 vbv_bufsize=13600 nal_hrd=cbr filler=1 ip_ratio=1.40 aq=1:1.00
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Output #0, mp4, to 'media/video/final_df04fc914f4642fdbc00ffc7cfd4cd7c.mp4':
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  Metadata:
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]    encoder         : Lavf61.7.100
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 6800 kb/s, 30 fps, 15360 tbn
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]      Metadata:
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]        encoder         : Lavc61.19.101 libx264
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]      Side data:
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]        cpb: bitrate max/min/avg: 6800000/0/6800000 buffer size: 13600000 vbv_delay: N/A
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, mono, fltp, 128 kb/s
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]      Metadata:
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]        encoder         : Lavc61.19.101 aac
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A
+[2m2026-03-10T05:07:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:❌ Video generation failed for: final_df04fc914f4642fdbc00ffc7cfd4cd7c.mp4
+[2m2026-03-10T05:07:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:07:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:Error in cleanup_old_files: name 'time' is not defined
+[2m2026-03-10T05:07:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Processing: आखाती देशांवर इराणचे ड्रोन-क्षेपणास्त्र हल्ले, बहरीनच्या तेल रिफायनरीला केले लक्ष्य - Saamana
+[2m2026-03-10T05:07:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 1/3)...
+[2m2026-03-10T05:07:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 1.78s... (Attempt 1/3)
+[2m2026-03-10T05:07:40Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 2/3)...
+[2m2026-03-10T05:07:40Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 2.55s... (Attempt 2/3)
+[2m2026-03-10T05:07:43Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 3/3)...
+[2m2026-03-10T05:07:43Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 4.85s... (Attempt 3/3)
+[2m2026-03-10T05:07:48Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Using hard-coded Marathi news template fallback.
+[2m2026-03-10T05:07:48Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Generating professional voice (SSML) for: नमस्कार, आपण पाहत आहात आजच्या मुख्य बातम्या...
+[2m2026-03-10T05:07:48Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]आख...
+[2m2026-03-10T05:07:53Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Audio saved to media/audio/news_408132d2cb934423bdb27ed3350a0fda.mp3
+[2m2026-03-10T05:07:53Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Generating AI anchor clip (Male: True)...
+[2m2026-03-10T05:08:02Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:Rendering FFmpeg silhouette anchor...
+[2m2026-03-10T05:08:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:08:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:Error in cleanup_old_files: name 'time' is not defined
+[2m2026-03-10T05:09:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:09:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:Error in cleanup_old_files: name 'time' is not defined
+[2m2026-03-10T05:09:41Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Pulling container image registry.fly.io/snm-be-priyansh-dere@sha256:ed8496f177311e54b2b34cca7d9ea5f4755533d79f87e8cbed1a59b610503f4a
+[2m2026-03-10T05:09:41Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Container image registry.fly.io/snm-be-priyansh-dere@sha256:ed8496f177311e54b2b34cca7d9ea5f4755533d79f87e8cbed1a59b610503f4a already prepared
+[2m2026-03-10T05:09:42Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Configuring firecracker
+[2m2026-03-10T05:09:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGINT to main child process w/ PID 646
+[2m2026-03-10T05:09:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Shutting down
+[2m2026-03-10T05:09:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application shutdown.
+[2m2026-03-10T05:09:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application shutdown complete.
+[2m2026-03-10T05:09:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Finished server process [646]
+[2m2026-03-10T05:09:46Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGTERM to main child process w/ PID 646
+[2m2026-03-10T05:09:46Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Main child exited with signal (with signal 'SIGTERM', core dumped? false)
+[2m2026-03-10T05:09:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Process appears to have been OOM killed!
+[2m2026-03-10T05:09:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2026-03-10T05:09:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][  209.805286] reboot: Restarting system
+[2m2026-03-10T05:09:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Out of memory: Killed process
+[2m2026-03-10T05:09:48Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:09:48.102739891 [01KKB2D7MPH7TAVMNH64EX1WPE:main] Running Firecracker v1.12.1
+[2m2026-03-10T05:09:48Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:09:48.102912358 [01KKB2D7MPH7TAVMNH64EX1WPE:main] Listening on API socket ("/fc.sock").
+[2m2026-03-10T05:09:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting init (commit: 350f2667)...
+[2m2026-03-10T05:09:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Preparing to run: `uvicorn main:app --host 0.0.0.0 --port 8000` as root
+[2m2026-03-10T05:09:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2026-03-10T05:09:49Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Machine created and started in 7.924s
+[2m2026-03-10T05:09:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026/03/10 05:09:49 INFO SSH listening listen_address=[fdaa:4d:6f41:a7b:178:429c:78f5:2]:22
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]/app/script_writer.py:2: FutureWarning:
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]All support for the `google.generativeai` package has ended. It will no longer be receiving
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]See README for more details:
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  import google.generativeai as genai
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:AnchorGenerator initialised — mode: FFmpeg silhouette
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Started server process [648]
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application startup.
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Startup complete - Auto news generation and Cleanup started.
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting auto news generation cycle...
+[2m2026-03-10T05:09:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Breaking News news from https://news.google.com/rss?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:52Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Maharashtra news from https://news.google.com/rss/headlines/section/geo/Maharashtra?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:53Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching India news from https://news.google.com/rss/headlines/section/topic/NATION.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:54Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching World news from https://news.google.com/rss/headlines/section/topic/WORLD.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:55Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Business news from https://news.google.com/rss/headlines/section/topic/BUSINESS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Technology news from https://news.google.com/rss/headlines/section/topic/TECHNOLOGY.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Entertainment news from https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:58Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Sports news from https://news.google.com/rss/headlines/section/topic/SPORTS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Successfully fetched 21 total categorized news items.
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Processing: Crude Oil Price: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 1/3)...
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:Error in cleanup_old_files: name 'time' is not defined
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application startup complete.
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2m2026-03-10T05:09:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 1.80s... (Attempt 1/3)
+[2m2026-03-10T05:10:01Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 2/3)...
+[2m2026-03-10T05:10:01Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 2.00s... (Attempt 2/3)
+[2m2026-03-10T05:10:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 3/3)...
+[2m2026-03-10T05:10:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 4.10s... (Attempt 3/3)
+[2m2026-03-10T05:10:07Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Using hard-coded Marathi news template fallback.
+[2m2026-03-10T05:10:07Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Generating professional voice (SSML) for: नमस्कार, आपण पाहत आहात आजच्या मुख्य बातम्या...
+[2m2026-03-10T05:10:07Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Cr...
+[2m2026-03-10T05:10:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Audio saved to media/audio/news_78c0689b296c4e85a0a388aa6110335b.mp3
+[2m2026-03-10T05:10:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Generating AI anchor clip (Male: False)...
+[2m2026-03-10T05:10:16Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:Rendering FFmpeg silhouette anchor...
+[2m2026-03-10T05:10:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:✅ FFmpeg silhouette anchor: /app/media/anchor/anchor_3eda6c9c8a454096b810c9e13b00494b.mp4
+[2m2026-03-10T05:10:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:✅ Anchor clip ready: anchor_3eda6c9c8a454096b810c9e13b00494b.mp4
+[2m2026-03-10T05:10:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Compositing studio clip | anchor=YES | duration=67.2s
+[2m2026-03-10T05:10:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Anchor file detected: /app/media/anchor/anchor_3eda6c9c8a454096b810c9e13b00494b.mp4
+[2m2026-03-10T05:10:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:FFmpeg Command: ffmpeg -y -f lavfi -i color=c=black:s=1920x1080:r=30:d=67.2 -stream_loop -1 -i /app/media/anchor/anchor_3eda6c9c8a454096b810c9e13b00494b.mp4 -i /app/media/audio/news_78c0689b296c4e85a0a388aa6110335b.mp3 -filter_complex [0:v]copy[canvas];[canvas]drawbox=x=0:y=0:w=1920:h=1080:color=0x0a0f1e:t=fill,drawbox=x=0:y=0:w=1920:h=80:color=0xcc0000:t=fill,drawbox=x=0:y=80:w=1920:h=4:color=0xf5a623:t=fill,drawtext=text='स्मार्ट न्यूज मराठी':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=24:y=(80-text_h)/2,drawtext=text='● LIVE':fontfile='Arial':fontsize=26:fontcolor=0xf5a623:box=1:boxcolor=0x000000@0.45:boxborderw=10:x=(1920/2-text_w/2):y=(80-text_h)/2,drawtext=text='05\:10  10 Mar 2026':fontfile='Arial':fontsize=24:fontcolor=0xffffff@0.85:x=(1920-text_w-24):y=(80-text_h)/2,drawbox=x=0:y=808:w=1920:h=220:color=0x0a0f1e@0.92:t=fill,drawbox=x=0:y=808:w=1920:h=5:color=0xcc0000:t=fill,drawbox=x=0:y=813:w=320:h=75:color=0xcc0000:t=fill,drawtext=text='BREAKING NEWS':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=16:y=838,drawtext=text='Crude Oil Price\: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=340:y=823,drawtext=text='सत्य · निर्भय · निष्पक्ष':fontfile='Arial':fontsize=22:fontcolor=0xf5a623@0.9:x=340:y=878,drawbox=x=0:y=1028:w=1920:h=52:color=0x0d0d0d:t=fill,drawbox=x=0:y=1028:w=210:h=52:color=0xcc0000:t=fill,drawtext=text='ताज्या बातम्या':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=14:y=1039,drawtext=text='  Smart News Marathi  ●  Smart News Marathi  ':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=1920-mod(t*180\,1920+text_w):y=1039,drawbox=x=0:y=1028:w=1920:h=3:color=0xf5a623:t=fill[bg];[1:v]scale=640:948:force_original_aspect_ratio=decrease,pad=640:948:(ow-iw)/2:(oh-ih)/2:color=0x080d18[av];[bg][av]overlay=0:80[vout] -map [vout] -map 2:a -c:v libx264 -preset fast -b:v 6800k -maxrate 6800k -minrate 6800k -bufsize 13600k -x264-params nal-hrd=cbr -c:a aac -b:a 128k -ar 44100 -t 67.2 -movflags +faststart media/video/final_6afecbb82f6b4c849f741fc4063b76a8.mp4
+[2m2026-03-10T05:10:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Running FFmpeg studio compositor...
+[2m2026-03-10T05:10:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:10:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:Error in cleanup_old_files: name 'time' is not defined
+[2m2026-03-10T05:11:24Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Pulling container image registry.fly.io/snm-be-priyansh-dere@sha256:4dab022a160873c742a3137cabdbb69689656d12645133130b835b1fd875b61f
+[2m2026-03-10T05:11:25Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Successfully prepared image registry.fly.io/snm-be-priyansh-dere@sha256:4dab022a160873c742a3137cabdbb69689656d12645133130b835b1fd875b61f (1.38778929s)
+[2m2026-03-10T05:11:26Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Configuring firecracker
+[2m2026-03-10T05:11:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGINT to main child process w/ PID 648
+[2m2026-03-10T05:11:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Shutting down
+[2m2026-03-10T05:11:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application shutdown.
+[2m2026-03-10T05:11:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application shutdown complete.
+[2m2026-03-10T05:11:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Finished server process [648]
+[2m2026-03-10T05:11:29Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGTERM to main child process w/ PID 648
+[2m2026-03-10T05:11:30Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Main child exited with signal (with signal 'SIGTERM', core dumped? false)
+[2m2026-03-10T05:11:30Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2026-03-10T05:11:30Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][  102.339582] reboot: Restarting system
+[2m2026-03-10T05:11:31Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:11:31.557180089 [01KKB2GC2WJXNAZ740Z3C20XY8:main] Running Firecracker v1.12.1
+[2m2026-03-10T05:11:31Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:11:31.557299794 [01KKB2GC2WJXNAZ740Z3C20XY8:main] Listening on API socket ("/fc.sock").
+[2m2026-03-10T05:11:32Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting init (commit: 350f2667)...
+[2m2026-03-10T05:11:32Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Preparing to run: `uvicorn main:app --host 0.0.0.0 --port 8000` as root
+[2m2026-03-10T05:11:32Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2026-03-10T05:11:32Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Machine created and started in 8.494s
+[2m2026-03-10T05:11:32Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026/03/10 05:11:32 INFO SSH listening listen_address=[fdaa:4d:6f41:a7b:178:429c:78f5:2]:22
+[2m2026-03-10T05:11:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]/app/script_writer.py:2: FutureWarning:
+[2m2026-03-10T05:11:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]All support for the `google.generativeai` package has ended. It will no longer be receiving
+[2m2026-03-10T05:11:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+[2m2026-03-10T05:11:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]See README for more details:
+[2m2026-03-10T05:11:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+[2m2026-03-10T05:11:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  import google.generativeai as genai
+[2m2026-03-10T05:11:34Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:AnchorGenerator initialised — mode: FFmpeg silhouette
+[2m2026-03-10T05:11:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Started server process [647]
+[2m2026-03-10T05:11:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application startup.
+[2m2026-03-10T05:11:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Startup complete - Auto news generation and Cleanup started.
+[2m2026-03-10T05:11:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting auto news generation cycle...
+[2m2026-03-10T05:11:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Breaking News news from https://news.google.com/rss?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Maharashtra news from https://news.google.com/rss/headlines/section/geo/Maharashtra?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching India news from https://news.google.com/rss/headlines/section/topic/NATION.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:36Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching World news from https://news.google.com/rss/headlines/section/topic/WORLD.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:36Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Business news from https://news.google.com/rss/headlines/section/topic/BUSINESS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:36Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Technology news from https://news.google.com/rss/headlines/section/topic/TECHNOLOGY.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:37Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Entertainment news from https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:37Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Sports news from https://news.google.com/rss/headlines/section/topic/SPORTS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Successfully fetched 21 total categorized news items.
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Processing: Crude Oil Price: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 1/3)...
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Cleanup complete: No old files found.
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application startup complete.
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2m2026-03-10T05:11:38Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 1.00s... (Attempt 1/3)
+[2m2026-03-10T05:11:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 2/3)...
+[2m2026-03-10T05:11:39Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 2.04s... (Attempt 2/3)
+[2m2026-03-10T05:11:41Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 3/3)...
+[2m2026-03-10T05:11:41Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 4.76s... (Attempt 3/3)
+[2m2026-03-10T05:11:46Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Using hard-coded Marathi news template fallback.
+[2m2026-03-10T05:11:46Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Generating professional voice (SSML) for: नमस्कार, आपण पाहत आहात आजच्या मुख्य बातम्या...
+[2m2026-03-10T05:11:46Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Cr...
+[2m2026-03-10T05:11:48Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Audio saved to media/audio/news_bed5d37dc43045368d52b023b374a8e9.mp3
+[2m2026-03-10T05:11:48Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Generating AI anchor clip (Male: False)...
+[2m2026-03-10T05:11:55Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:Rendering FFmpeg silhouette anchor...
+[2m2026-03-10T05:12:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:✅ FFmpeg silhouette anchor: /app/media/anchor/anchor_0ead2dc74c834ea692755befed45c5f5.mp4
+[2m2026-03-10T05:12:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:✅ Anchor clip ready: anchor_0ead2dc74c834ea692755befed45c5f5.mp4
+[2m2026-03-10T05:12:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Compositing studio clip | anchor=YES | duration=67.2s
+[2m2026-03-10T05:12:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Anchor file detected: /app/media/anchor/anchor_0ead2dc74c834ea692755befed45c5f5.mp4
+[2m2026-03-10T05:12:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:FFmpeg Command: ffmpeg -y -f lavfi -i color=c=black:s=1920x1080:r=30:d=67.2 -stream_loop -1 -i /app/media/anchor/anchor_0ead2dc74c834ea692755befed45c5f5.mp4 -i /app/media/audio/news_bed5d37dc43045368d52b023b374a8e9.mp3 -filter_complex [0:v]copy[canvas];[canvas]drawbox=x=0:y=0:w=1920:h=1080:color=0x0a0f1e:t=fill,drawbox=x=0:y=0:w=1920:h=80:color=0xcc0000:t=fill,drawbox=x=0:y=80:w=1920:h=4:color=0xf5a623:t=fill,drawtext=text='स्मार्ट न्यूज मराठी':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=24:y=(80-text_h)/2,drawtext=text='● LIVE':fontfile='Arial':fontsize=26:fontcolor=0xf5a623:box=1:boxcolor=0x000000@0.45:boxborderw=10:x=(1920/2-text_w/2):y=(80-text_h)/2,drawtext=text='05\:12  10 Mar 2026':fontfile='Arial':fontsize=24:fontcolor=0xffffff@0.85:x=(1920-text_w-24):y=(80-text_h)/2,drawbox=x=0:y=808:w=1920:h=220:color=0x0a0f1e@0.92:t=fill,drawbox=x=0:y=808:w=1920:h=5:color=0xcc0000:t=fill,drawbox=x=0:y=813:w=320:h=75:color=0xcc0000:t=fill,drawtext=text='BREAKING NEWS':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=16:y=838,drawtext=text='Crude Oil Price\: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=340:y=823,drawtext=text='सत्य · निर्भय · निष्पक्ष':fontfile='Arial':fontsize=22:fontcolor=0xf5a623@0.9:x=340:y=878,drawbox=x=0:y=1028:w=1920:h=52:color=0x0d0d0d:t=fill,drawbox=x=0:y=1028:w=210:h=52:color=0xcc0000:t=fill,drawtext=text='ताज्या बातम्या':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=14:y=1039,drawtext=text='  Smart News Marathi  ●  Smart News Marathi  ':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=1920-mod(t*180\,1920+text_w):y=1039,drawbox=x=0:y=1028:w=1920:h=3:color=0xf5a623:t=fill[bg];[1:v]scale=640:948:force_original_aspect_ratio=decrease,pad=640:948:(ow-iw)/2:(oh-ih)/2:color=0x080d18[av];[bg][av]overlay=0:80[vout] -map [vout] -map 2:a -c:v libx264 -preset fast -b:v 6800k -maxrate 6800k -minrate 6800k -bufsize 13600k -x264-params nal-hrd=cbr -c:a aac -b:a 128k -ar 44100 -t 67.2 -movflags +faststart media/video/final_e357b3b53f2e44be96c8246009904e85.mp4
+[2m2026-03-10T05:12:17Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Running FFmpeg studio compositor...
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][   47.454305] Out of memory: Killed process 678 (ffmpeg) total-vm:1248152kB, anon-rss:310064kB, file-rss:52kB, shmem-rss:0kB, UID:0 pgtables:1276kB oom_score_adj:0
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:video_generator:FFmpeg failed with code -9
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:video_generator:FFmpeg stderr: bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=cbr mbtree=1 bitrate=6800 ratetol=1.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 vbv_maxrate=6800 vbv_bufsize=13600 nal_hrd=cbr filler=1 ip_ratio=1.40 aq=1:1.00
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Output #0, mp4, to 'media/video/final_e357b3b53f2e44be96c8246009904e85.mp4':
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  Metadata:
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]    encoder         : Lavf61.7.100
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 6800 kb/s, 30 fps, 15360 tbn
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]      Metadata:
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]        encoder         : Lavc61.19.101 libx264
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]      Side data:
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]        cpb: bitrate max/min/avg: 6800000/0/6800000 buffer size: 13600000 vbv_delay: N/A
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, mono, fltp, 128 kb/s
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]      Metadata:
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]        encoder         : Lavc61.19.101 aac
+[2m2026-03-10T05:12:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A
+[2m2026-03-10T05:12:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]ERROR:main:❌ Video generation failed for: final_e357b3b53f2e44be96c8246009904e85.mp4
+[2m2026-03-10T05:12:40Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Processing: Iran War News: इराण हादरलं...! अमेरिकेने दिलेली धमकी खरी ठरली, घोषणा झाल्यानंतर 24 तासांतच 'सुप्रीम लीडर'वर मिसाईल हल्ला - Sarkarnama
+[2m2026-03-10T05:12:40Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 1/3)...
+[2m2026-03-10T05:12:40Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 1.88s... (Attempt 1/3)
+[2m2026-03-10T05:12:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 2/3)...
+[2m2026-03-10T05:12:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 2.83s... (Attempt 2/3)
+[2m2026-03-10T05:12:45Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 3/3)...
+[2m2026-03-10T05:12:45Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 4.19s... (Attempt 3/3)
+[2m2026-03-10T05:12:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Using hard-coded Marathi news template fallback.
+[2m2026-03-10T05:12:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Generating professional voice (SSML) for: नमस्कार, आपण पाहत आहात आजच्या मुख्य बातम्या...
+[2m2026-03-10T05:12:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Ir...
+[2m2026-03-10T05:12:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Audio saved to media/audio/news_fec626882ed1468298342b56ee95d749.mp3
+[2m2026-03-10T05:12:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Generating AI anchor clip (Male: True)...
+[2m2026-03-10T05:13:06Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:Rendering FFmpeg silhouette anchor...
+[2m2026-03-10T05:13:45Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Pulling container image registry.fly.io/snm-be-priyansh-dere@sha256:4dab022a160873c742a3137cabdbb69689656d12645133130b835b1fd875b61f
+[2m2026-03-10T05:13:45Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Container image registry.fly.io/snm-be-priyansh-dere@sha256:4dab022a160873c742a3137cabdbb69689656d12645133130b835b1fd875b61f already prepared
+[2m2026-03-10T05:13:46Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Configuring firecracker
+[2m2026-03-10T05:13:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGINT to main child process w/ PID 647
+[2m2026-03-10T05:13:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Shutting down
+[2m2026-03-10T05:13:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application shutdown.
+[2m2026-03-10T05:13:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application shutdown complete.
+[2m2026-03-10T05:13:47Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Finished server process [647]
+[2m2026-03-10T05:13:50Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGTERM to main child process w/ PID 647
+[2m2026-03-10T05:13:52Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Main child exited with signal (with signal 'SIGTERM', core dumped? false)
+[2m2026-03-10T05:13:52Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2026-03-10T05:13:52Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][  140.629706] reboot: Restarting system
+[2m2026-03-10T05:13:53Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:13:53.276811680 [01KKB2MPARPE73HF34D62W535D:main] Running Firecracker v1.12.1
+[2m2026-03-10T05:13:53Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:13:53.276930045 [01KKB2MPARPE73HF34D62W535D:main] Listening on API socket ("/fc.sock").
+[2m2026-03-10T05:13:54Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting init (commit: 350f2667)...
+[2m2026-03-10T05:13:54Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Preparing to run: `uvicorn main:app --host 0.0.0.0 --port 8000` as root
+[2m2026-03-10T05:13:54Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2026-03-10T05:13:54Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Machine created and started in 8.723s
+[2m2026-03-10T05:13:54Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026/03/10 05:13:54 INFO SSH listening listen_address=[fdaa:4d:6f41:a7b:178:429c:78f5:2]:22
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]/app/script_writer.py:2: FutureWarning:
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]All support for the `google.generativeai` package has ended. It will no longer be receiving
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]See README for more details:
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  import google.generativeai as genai
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:AnchorGenerator initialised — mode: FFmpeg silhouette
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Started server process [655]
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application startup.
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Startup complete - Auto news generation and Cleanup started.
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting auto news generation cycle...
+[2m2026-03-10T05:13:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Breaking News news from https://news.google.com/rss?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:13:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Maharashtra news from https://news.google.com/rss/headlines/section/geo/Maharashtra?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:13:58Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching India news from https://news.google.com/rss/headlines/section/topic/NATION.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:13:58Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching World news from https://news.google.com/rss/headlines/section/topic/WORLD.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:13:58Z[0m proxy[83d475c7d74718] [32mbom[0m [[31merror[0m][PC01] instance refused connection. is your app listening on 0.0.0.0:8000? make sure it is not only listening on 127.0.0.1 (hint: look at your startup logs, servers often print the address they are listening on)
+[2m2026-03-10T05:13:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Business news from https://news.google.com/rss/headlines/section/topic/BUSINESS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:14:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Technology news from https://news.google.com/rss/headlines/section/topic/TECHNOLOGY.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:14:01Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Entertainment news from https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:14:02Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Sports news from https://news.google.com/rss/headlines/section/topic/SPORTS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Successfully fetched 21 total categorized news items.
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Processing: Crude Oil Price: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 1/3)...
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Cleanup complete: No old files found.
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application startup complete.
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2m2026-03-10T05:14:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 1.80s... (Attempt 1/3)
+[2m2026-03-10T05:14:05Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 2/3)...
+[2m2026-03-10T05:14:05Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 2.41s... (Attempt 2/3)
+[2m2026-03-10T05:14:07Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 3/3)...
+[2m2026-03-10T05:14:08Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 4.07s... (Attempt 3/3)
+[2m2026-03-10T05:14:12Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Using hard-coded Marathi news template fallback.
+[2m2026-03-10T05:14:12Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Generating professional voice (SSML) for: नमस्कार, आपण पाहत आहात आजच्या मुख्य बातम्या...
+[2m2026-03-10T05:14:12Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Cr...
+[2m2026-03-10T05:14:13Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Audio saved to media/audio/news_ea0ec45db4194f32a0281289fd8a679d.mp3
+[2m2026-03-10T05:14:13Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Generating AI anchor clip (Male: False)...
+[2m2026-03-10T05:14:20Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:Rendering FFmpeg silhouette anchor...
+[2m2026-03-10T05:14:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:✅ FFmpeg silhouette anchor: /app/media/anchor/anchor_f8731e09c5384a60bac15289e9489fd3.mp4
+[2m2026-03-10T05:14:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:✅ Anchor clip ready: anchor_f8731e09c5384a60bac15289e9489fd3.mp4
+[2m2026-03-10T05:14:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Compositing studio clip | anchor=YES | duration=67.2s
+[2m2026-03-10T05:14:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Anchor file detected: /app/media/anchor/anchor_f8731e09c5384a60bac15289e9489fd3.mp4
+[2m2026-03-10T05:14:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:FFmpeg Command: ffmpeg -y -f lavfi -i color=c=black:s=1920x1080:r=30:d=67.2 -stream_loop -1 -i /app/media/anchor/anchor_f8731e09c5384a60bac15289e9489fd3.mp4 -i /app/media/audio/news_ea0ec45db4194f32a0281289fd8a679d.mp3 -filter_complex [0:v]copy[canvas];[canvas]drawbox=x=0:y=0:w=1920:h=1080:color=0x0a0f1e:t=fill,drawbox=x=0:y=0:w=1920:h=80:color=0xcc0000:t=fill,drawbox=x=0:y=80:w=1920:h=4:color=0xf5a623:t=fill,drawtext=text='स्मार्ट न्यूज मराठी':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=24:y=(80-text_h)/2,drawtext=text='● LIVE':fontfile='Arial':fontsize=26:fontcolor=0xf5a623:box=1:boxcolor=0x000000@0.45:boxborderw=10:x=(1920/2-text_w/2):y=(80-text_h)/2,drawtext=text='05\:14  10 Mar 2026':fontfile='Arial':fontsize=24:fontcolor=0xffffff@0.85:x=(1920-text_w-24):y=(80-text_h)/2,drawbox=x=0:y=808:w=1920:h=220:color=0x0a0f1e@0.92:t=fill,drawbox=x=0:y=808:w=1920:h=5:color=0xcc0000:t=fill,drawbox=x=0:y=813:w=320:h=75:color=0xcc0000:t=fill,drawtext=text='BREAKING NEWS':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=16:y=838,drawtext=text='Crude Oil Price\: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=340:y=823,drawtext=text='सत्य · निर्भय · निष्पक्ष':fontfile='Arial':fontsize=22:fontcolor=0xf5a623@0.9:x=340:y=878,drawbox=x=0:y=1028:w=1920:h=52:color=0x0d0d0d:t=fill,drawbox=x=0:y=1028:w=210:h=52:color=0xcc0000:t=fill,drawtext=text='ताज्या बातम्या':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=14:y=1039,drawtext=text='  Smart News Marathi  ●  Smart News Marathi  ':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=1920-mod(t*180\,1920+text_w):y=1039,drawbox=x=0:y=1028:w=1920:h=3:color=0xf5a623:t=fill[bg];[1:v]scale=640:948:force_original_aspect_ratio=decrease,pad=640:948:(ow-iw)/2:(oh-ih)/2:color=0x080d18[av];[bg][av]overlay=0:80[vout] -map [vout] -map 2:a -c:v libx264 -preset fast -b:v 6800k -maxrate 6800k -minrate 6800k -bufsize 13600k -x264-params nal-hrd=cbr -c:a aac -b:a 128k -ar 44100 -t 67.2 -movflags +faststart media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4
+[2m2026-03-10T05:14:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Running FFmpeg studio compositor...
+[2m2026-03-10T05:21:41Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:42572 - "GET /news/videos HTTP/1.1" 200 OK
+[2m2026-03-10T05:21:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:42582 - "HEAD /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 200 OK
+[2m2026-03-10T05:21:42Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:42588 - "GET /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 206 Partial Content
+[2m2026-03-10T05:21:43Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:42598 - "GET /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 206 Partial Content
+[2m2026-03-10T05:21:43Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:42604 - "GET /news/videos HTTP/1.1" 200 OK
+[2m2026-03-10T05:21:44Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:42610 - "HEAD /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 200 OK
+[2m2026-03-10T05:29:22Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:45748 - "GET /news/videos HTTP/1.1" 200 OK
+[2m2026-03-10T05:29:22Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:45762 - "HEAD /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 200 OK
+[2m2026-03-10T05:29:23Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:45764 - "GET /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 206 Partial Content
+[2m2026-03-10T05:29:23Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:45770 - "GET /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 206 Partial Content
+[2m2026-03-10T05:29:23Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:45774 - "GET /news/videos HTTP/1.1" 200 OK
+[2m2026-03-10T05:29:24Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:45778 - "HEAD /media/video/final_86a3000dd99f45ae9a1fb48355f2ef9c.mp4 HTTP/1.1" 200 OK
+[2m2026-03-10T05:33:48Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Pulling container image registry.fly.io/snm-be-priyansh-dere@sha256:9497b27c7ed10f3237dd6c8b1d5a848b0fae57809fd41b1655c6206876654f58
+[2m2026-03-10T05:33:49Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Successfully prepared image registry.fly.io/snm-be-priyansh-dere@sha256:9497b27c7ed10f3237dd6c8b1d5a848b0fae57809fd41b1655c6206876654f58 (1.102436818s)
+[2m2026-03-10T05:33:51Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Configuring firecracker
+[2m2026-03-10T05:33:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGINT to main child process w/ PID 655
+[2m2026-03-10T05:33:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Shutting down
+[2m2026-03-10T05:33:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application shutdown.
+[2m2026-03-10T05:33:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application shutdown complete.
+[2m2026-03-10T05:33:51Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Finished server process [655]
+[2m2026-03-10T05:33:53Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Sending signal SIGTERM to main child process w/ PID 655
+[2m2026-03-10T05:33:55Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Main child exited with signal (with signal 'SIGTERM', core dumped? false)
+[2m2026-03-10T05:33:55Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2026-03-10T05:33:55Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][ 1201.758515] reboot: Restarting system
+[2m2026-03-10T05:33:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:33:56.441125023 [01KKB3SD7M585VM25GKZN2T4DJ:main] Running Firecracker v1.12.1
+[2m2026-03-10T05:33:56Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026-03-10T05:33:56.441268688 [01KKB3SD7M585VM25GKZN2T4DJ:main] Listening on API socket ("/fc.sock").
+[2m2026-03-10T05:33:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Starting init (commit: 350f2667)...
+[2m2026-03-10T05:33:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m Preparing to run: `uvicorn main:app --host 0.0.0.0 --port 8000` as root
+[2m2026-03-10T05:33:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2026-03-10T05:33:57Z[0m runner[83d475c7d74718] [32mbom[0m [[34minfo[0m]Machine created and started in 8.78s
+[2m2026-03-10T05:33:57Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026/03/10 05:33:57 INFO SSH listening listen_address=[fdaa:4d:6f41:a7b:178:429c:78f5:2]:22
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]/app/script_writer.py:2: FutureWarning:
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]All support for the `google.generativeai` package has ended. It will no longer be receiving
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]See README for more details:
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]  import google.generativeai as genai
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:AnchorGenerator initialised — mode: FFmpeg silhouette
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Started server process [653]
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Waiting for application startup.
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Startup complete - Auto news generation and Cleanup started.
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting auto news generation cycle...
+[2m2026-03-10T05:33:59Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Breaking News news from https://news.google.com/rss?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:00Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Maharashtra news from https://news.google.com/rss/headlines/section/geo/Maharashtra?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:01Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching India news from https://news.google.com/rss/headlines/section/topic/NATION.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:03Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching World news from https://news.google.com/rss/headlines/section/topic/WORLD.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:04Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Business news from https://news.google.com/rss/headlines/section/topic/BUSINESS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:06Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Technology news from https://news.google.com/rss/headlines/section/topic/TECHNOLOGY.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:06Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Entertainment news from https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:08Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Fetching Sports news from https://news.google.com/rss/headlines/section/topic/SPORTS.mr_in?hl=mr&gl=IN&ceid=IN:mr
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:scraper:Successfully fetched 21 total categorized news items.
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Processing: Crude Oil Price: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 1/3)...
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Starting media cleanup (Files > 6 hours)...
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Cleanup complete: No old files found.
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Application startup complete.
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2m2026-03-10T05:34:09Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 1.42s... (Attempt 1/3)
+[2m2026-03-10T05:34:10Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 2/3)...
+[2m2026-03-10T05:34:11Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 2.15s... (Attempt 2/3)
+[2m2026-03-10T05:34:13Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:script_writer:Generating Marathi news script (Attempt 3/3)...
+[2m2026-03-10T05:34:13Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Rate limit hit. Retrying in 4.83s... (Attempt 3/3)
+[2m2026-03-10T05:34:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]WARNING:script_writer:Using hard-coded Marathi news template fallback.
+[2m2026-03-10T05:34:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Generating professional voice (SSML) for: नमस्कार, आपण पाहत आहात आजच्या मुख्य बातम्या...
+[2m2026-03-10T05:34:18Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]Cr...
+[2m2026-03-10T05:34:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:voice_generator:Audio saved to media/audio/news_411804ad329c4c0380c3da0739452b5d.mp3
+[2m2026-03-10T05:34:19Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:Generating AI anchor clip (Male: False)...
+[2m2026-03-10T05:34:27Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:Rendering FFmpeg silhouette anchor...
+[2m2026-03-10T05:34:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:anchor_generator:✅ FFmpeg silhouette anchor: /app/media/anchor/anchor_b779155b021142168628bdff1ac7b902.mp4
+[2m2026-03-10T05:34:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:main:✅ Anchor clip ready: anchor_b779155b021142168628bdff1ac7b902.mp4
+[2m2026-03-10T05:34:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Compositing studio clip | anchor=YES | duration=67.2s
+[2m2026-03-10T05:34:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Anchor file detected: /app/media/anchor/anchor_b779155b021142168628bdff1ac7b902.mp4
+[2m2026-03-10T05:34:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:FFmpeg Command: ffmpeg -y -f lavfi -i color=c=black:s=1920x1080:r=30:d=67.2 -stream_loop -1 -i /app/media/anchor/anchor_b779155b021142168628bdff1ac7b902.mp4 -i /app/media/audio/news_411804ad329c4c0380c3da0739452b5d.mp3 -filter_complex [0:v]copy[canvas];[canvas]drawbox=x=0:y=0:w=1920:h=1080:color=0x0a0f1e:t=fill,drawbox=x=0:y=0:w=1920:h=80:color=0xcc0000:t=fill,drawbox=x=0:y=80:w=1920:h=4:color=0xf5a623:t=fill,drawtext=text='स्मार्ट न्यूज मराठी':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=24:y=(80-text_h)/2,drawtext=text='● LIVE':fontfile='Arial':fontsize=26:fontcolor=0xf5a623:box=1:boxcolor=0x000000@0.45:boxborderw=10:x=(1920/2-text_w/2):y=(80-text_h)/2,drawtext=text='05\:34  10 Mar 2026':fontfile='Arial':fontsize=24:fontcolor=0xffffff@0.85:x=(1920-text_w-24):y=(80-text_h)/2,drawbox=x=0:y=808:w=1920:h=220:color=0x0a0f1e@0.92:t=fill,drawbox=x=0:y=808:w=1920:h=5:color=0xcc0000:t=fill,drawbox=x=0:y=813:w=320:h=75:color=0xcc0000:t=fill,drawtext=text='BREAKING NEWS':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=16:y=838,drawtext=text='Crude Oil Price\: डोनाल्ड ट्रम्प यांचं एक वक्तव्य आणि कच्च्या तेलाची किंमत घसरली; म्हणाले, "युद्ध लवकरच..." - Lokmat.com':fontfile='Arial':fontsize=34:fontcolor=0xffffff:x=340:y=823,drawtext=text='सत्य · निर्भय · निष्पक्ष':fontfile='Arial':fontsize=22:fontcolor=0xf5a623@0.9:x=340:y=878,drawbox=x=0:y=1028:w=1920:h=52:color=0x0d0d0d:t=fill,drawbox=x=0:y=1028:w=210:h=52:color=0xcc0000:t=fill,drawtext=text='ताज्या बातम्या':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=14:y=1039,drawtext=text='  Smart News Marathi  ●  Smart News Marathi  ':fontfile='Arial':fontsize=24:fontcolor=0xffffff:x=1920-mod(t*180\,1920+text_w):y=1039,drawbox=x=0:y=1028:w=1920:h=3:color=0xf5a623:t=fill[bg];[1:v]scale=640:948:force_original_aspect_ratio=decrease,pad=640:948:(ow-iw)/2:(oh-ih)/2:color=0x080d18[av];[bg][av]overlay=0:80,scale=1280:720[vout] -map [vout] -map 2:a -c:v libx264 -preset veryfast -threads 2 -b:v 3000k -maxrate 3000k -minrate 3000k -bufsize 6000k -x264-params nal-hrd=cbr -c:a aac -b:a 128k -ar 44100 -t 67.2 -movflags +faststart media/video/final_b7de54c5af154e19bbde303b9ffc8459.mp4
+[2m2026-03-10T05:34:49Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:video_generator:Running FFmpeg studio compositor...
+[2m2026-03-10T05:37:26Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:41942 - "GET /news/videos HTTP/1.1" 200 OK
+[2m2026-03-10T05:37:27Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:40668 - "HEAD /media/video/final_b7de54c5af154e19bbde303b9ffc8459.mp4 HTTP/1.1" 200 OK
+[2m2026-03-10T05:37:27Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:40674 - "GET /media/video/final_b7de54c5af154e19bbde303b9ffc8459.mp4 HTTP/1.1" 206 Partial Content
+[2m2026-03-10T05:37:27Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:40688 - "GET /media/video/final_b7de54c5af154e19bbde303b9ffc8459.mp4 HTTP/1.1" 206 Partial Content
+[2m2026-03-10T05:37:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:40704 - "GET /news/videos HTTP/1.1" 200 OK
+[2m2026-03-10T05:37:28Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]INFO:     172.16.20.210:40706 - "HEAD /media/video/final_b7de54c5af154e19bbde303b9ffc8459.mp4 HTTP/1.1" 200 OK
+[2m2026-03-10T05:39:35Z[0m app[83d475c7d74718] [32mbom[0m [[34minfo[0m]2026/03/10 05:39:35 INFO New SSH session email=milind.dere76@gmail.com verified=true

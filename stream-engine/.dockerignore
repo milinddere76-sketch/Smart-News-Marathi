@@ -1,0 +1,18 @@
+# Ignore large media files
+media/
+media/video/
+media/audio/
+media/anchor/
+
+# Ignore Python temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment files
+.env
+
+# Ignore deployment artifacts
+fly.toml
+Dockerfile

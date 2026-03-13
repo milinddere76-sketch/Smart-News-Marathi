@@ -35,7 +35,13 @@ backend/media/video/*
 !backend/media/audio/.gitkeep
 !backend/media/video/.gitkeep
 media/ads/*
+media/anchor/*
+media/audio/*
+media/video/*
 !media/ads/.gitkeep
+!media/anchor/.gitkeep
+!media/audio/.gitkeep
+!media/video/.gitkeep
 
 # Docker
 .docker_data/

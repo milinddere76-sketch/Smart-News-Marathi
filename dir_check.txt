@@ -1,0 +1,64 @@
+ Volume in drive D is New Volume
+ Volume Serial Number is BA37-49C7
+
+ Directory of D:\Apps\Smart News Marathi
+
+13-03-2026  00:12    <DIR>          .
+08-03-2026  11:38    <DIR>          ..
+08-03-2026  20:57               388 .env.example
+07-03-2026  20:51               579 .gitignore
+07-03-2026  20:26    <DIR>          .vscode
+13-03-2026  00:03    <DIR>          backend
+08-03-2026  02:57             7,721 CLOUD_DEPLOYMENT_GUIDE.md
+10-03-2026  07:09             3,352 CLOUD_DEPLOYMENT_PRO.md
+10-03-2026  02:05               781 copy_assets.py
+10-03-2026  02:08             1,264 debug_copy.py
+09-03-2026  20:16             2,157 debug_render.py
+12-03-2026  15:36             1,092 deploy_all.bat
+12-03-2026  20:25               788 deploy_visible.vbs
+12-03-2026  11:59               101 deploy_wrap.bat
+09-03-2026  22:27             1,070 diagnose_startup.py
+13-03-2026  00:12                 0 dir_check.txt
+07-03-2026  20:44             1,718 docker-compose.yml
+12-03-2026  22:01             1,194 download_model_helper.py
+12-03-2026  22:52             1,777 download_model_v2.py
+12-03-2026  21:47             1,244 download_wav2lip_model.bat
+10-03-2026  06:38                91 env_test.txt
+12-03-2026  23:34               842 extract_error.py
+10-03-2026  23:04             1,643 fresh_deploy.ps1
+10-03-2026  01:42    <DIR>          frontend
+07-03-2026  23:18               680 generate_placeholder.py
+13-03-2026  00:11             1,054 get_pip_list.py
+07-03-2026  21:00                 9 git_check.txt
+07-03-2026  21:32               557 git_trace.bat
+09-03-2026  22:32               417 heartbeat.py
+12-03-2026  21:30             1,380 install_wav2lip.bat
+09-03-2026  15:12               136 kill_all.bat
+12-03-2026  11:57             1,940 master_deploy.ps1
+10-03-2026  00:55    <DIR>          media
+07-03-2026  20:05               646 README.md
+10-03-2026  11:09            35,953 recent_logs.txt
+10-03-2026  11:09            35,953 recent_logs2.txt
+12-03-2026  20:45             1,240 redeploy_all.bat
+12-03-2026  20:40               129 redeploy_visible.vbs
+07-03-2026  21:14             1,655 render.yaml
+07-03-2026  22:34               253 requirements.txt
+12-03-2026  07:16             1,774 run_all.ps1
+12-03-2026  21:48               139 run_model_download.vbs
+09-03-2026  08:33             1,752 run_svc.py
+12-03-2026  21:31               132 run_wav2lip_install.vbs
+07-03-2026  21:02               192 setup_git.bat
+09-03-2026  22:35             1,139 start_all.bat
+10-03-2026  09:07    <DIR>          stream-engine
+10-03-2026  11:07            45,526 streamer_test_logs.txt
+10-03-2026  11:09            76,809 temp_backend_logs.txt
+08-03-2026  20:21    <DIR>          temp_build
+10-03-2026  11:07            47,532 temp_streamer_logs.txt
+07-03-2026  20:02                45 test.bat
+10-03-2026  01:28                87 test.txt
+11-03-2026  23:57             1,469 test_generation.py
+13-03-2026  00:08                11 test_root.txt
+09-03-2026  08:35               161 test_shell.bat
+07-03-2026  22:34               343 vercel.json
+              49 File(s)        286,915 bytes
+               8 Dir(s)  248,572,637,184 bytes free

@@ -1,5 +1,6 @@
 app = "snm-be-priyansh-dere"
 primary_region = "bom"
+swap_size_mb = 2048
 
 [build]
   dockerfile = "Dockerfile"
@@ -7,11 +8,22 @@ primary_region = "bom"
 [http_service]
   internal_port = 8000
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = false
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    grace_period = "30s"
+    interval = "30s"
+    method = "GET"
+    path = "/"
+    timeout = "10s"
 
 [[vm]]
-  memory = "512mb"
+  memory = "2048mb"
   cpu_kind = "shared"
   cpus = 1
+
+[[mounts]]
+  source = "snm_media_storage"
+  destination = "/app/media"

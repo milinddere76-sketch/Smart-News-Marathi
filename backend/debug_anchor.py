@@ -1,9 +1,14 @@
 import asyncio
 import os
 import logging
+import subprocess
+from dotenv import load_dotenv
 from anchor_generator import AnchorGenerator
 
+load_dotenv()
 logging.basicConfig(level=logging.INFO)
+
+FFMPEG_EXE = os.getenv("FFMPEG_PATH", "ffmpeg")
 
 async def debug_anchor():
     gen = AnchorGenerator()
@@ -12,8 +17,7 @@ async def debug_anchor():
     os.makedirs("media/audio", exist_ok=True)
     if not os.path.exists(audio_path):
         # Generate 5 sec of silence
-        import subprocess
-        subprocess.run(["ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono", "-t", "5", audio_path])
+        subprocess.run([FFMPEG_EXE, "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono", "-t", "5", audio_path])
     
     out_path = "media/anchor/debug_silhouette.mp4"
     result = gen.generate_anchor_clip(audio_path, out_path)

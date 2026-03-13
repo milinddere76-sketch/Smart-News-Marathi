@@ -1,0 +1,16 @@
+venv/
+SadTalker/
+.git/
+media/video/*
+!media/video/.gitkeep
+media/audio/*
+!media/audio/.gitkeep
+media/anchor/*
+!media/anchor/.gitkeep
+!media/assets/
+**/__pycache__
+*.mp4
+*.mp3
+app.log
+.env
+

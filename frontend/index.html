@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="mr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vartapravah - Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#cc0000',
+                            600: '#8b0000',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap');
+        body { font-family: 'Mukta', sans-serif; background: #0a0f1e; color: #fff;}
+        .glass { background: rgba(13, 21, 40, 0.8); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .b-gold { border-bottom: 2px solid #f5a623; }
+        .t-gold { color: #f5a623; }
+    </style>
+</head>
+<body class="min-h-screen p-6">
+
+<div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <header class="flex items-center justify-between pb-6 mb-8 b-gold">
+        <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-brand-500 rounded flex items-center justify-center font-bold text-xl">SN</div>
+            <div>
+                <h1 class="text-3xl justify-center font-bold">VartaPravah <span class="t-gold font-normal">2.0</span></h1>
+                <p class="text-gray-400 text-sm">Automated Broadcasting Dashboard</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3 text-sm">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span class="text-green-400 font-semibold tracking-wider">SYSTEM ONLINE</span>
+        </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Stream Queue -->
+        <div class="lg:col-span-2 space-y-6">
+            <div class="glass rounded-xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold flex items-center"><span class="w-2 h-6 bg-brand-500 mr-3 rounded"></span> Recent Clips Queue</h2>
+                    <button onclick="fetchVideos()" class="text-sm bg-brand-600 hover:bg-brand-500 transition px-4 py-2 rounded">Refresh</button>
+                </div>
+                <div id="videoList" class="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+                    <div class="text-center py-10 text-gray-500">Loading stream queue...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls & Meta -->
+        <div class="space-y-6">
+            <!-- News Generator stats -->
+            <div class="glass rounded-xl p-6 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <h2 class="text-xl font-bold flex items-center mb-6 relative"><span class="w-2 h-6 bg-brand-500 mr-3 rounded"></span> System Engine</h2>
+                <div class="space-y-4 relative">
+                    <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                        <span class="text-gray-400">Scraper</span>
+                        <span class="text-green-400">Active</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                        <span class="text-gray-400">LLM Scripts</span>
+                        <span class="text-green-400">Gemini-2.0</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                        <span class="text-gray-400">AI Anchors</span>
+                        <span class="text-green-400">Male/Female Sync</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="text-gray-400">Composer</span>
+                        <span class="text-green-400">FFmpeg 1080p30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manual Trigger -->
+            <div class="glass rounded-xl p-6">
+                <h2 class="text-xl font-bold flex items-center mb-4"><span class="w-2 h-6 bg-brand-500 mr-3 rounded"></span> Quick Links</h2>
+                <div class="space-y-3">
+                    <a href="https://studio.youtube.com" target="_blank" rel="noopener" class="block w-full text-center bg-zinc-800 hover:bg-zinc-700 transition py-3 rounded font-semibold text-sm">
+                        Open YouTube Live Room
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Fetch and populate the video queue
+    async function fetchVideos() {
+        const container = document.getElementById('videoList');
+        try {
+            const response = await fetch('/news/videos');
+            const data = await response.json();
+            
+            if (!data.videos || data.videos.length === 0) {
+                container.innerHTML = '<div class="text-center py-10 text-gray-500">No clips in queue yet. Engine is booting.</div>';
+                return;
+            }
+
+            container.innerHTML = '';
+            data.videos.forEach((video, index) => {
+                const isPromo = video.includes('promo');
+                const titleMatch = video.match(/^final_(.*?)\.mp4$/);
+                const displayTitle = isPromo ? '🔔 Channel Promo (Subscribe Animation)' : `News Segment | ID: ${titleMatch ? titleMatch[1].substring(0,8) : 'Unknown'}`;
+                
+                const badge = isPromo 
+                    ? '<span class="px-2 py-1 bg-yellow-500/20 t-gold text-xs rounded border border-yellow-500/30">PROMO</span>' 
+                    : '<span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded border border-blue-500/30">NEWS</span>';
+                
+                const nowPlaying = index === 0 ? '<span class="ml-3 text-xs text-green-400 font-bold animate-pulse">● BROADCASTING</span>' : '';
+
+                const div = document.createElement('div');
+                div.className = 'flex items-center justify-between p-4 bg-zinc-900/50 rounded-lg border border-gray-800 hover:border-gray-600 transition';
+                div.innerHTML = `
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 ${isPromo ? 'bg-yellow-900/50 text-yellow-500' : 'bg-brand-900/50 text-brand-500'} rounded flex items-center justify-center font-bold">
+                            ${isPromo ? '★' : '▶'}
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm flex items-center">${displayTitle} ${nowPlaying}</div>
+                            <div class="text-xs text-gray-500 mt-1">${video}</div>
+                        </div>
+                    </div>
+                    <div>${badge}</div>
+                `;
+                container.appendChild(div);
+            });
+        } catch (error) {
+            container.innerHTML = `<div class="text-center py-10 text-red-400">Failed to connect to backend: ${error.message}</div>`;
+        }
+    }
+
+    // Auto refresh every 30 seconds
+    fetchVideos();
+    setInterval(fetchVideos, 30000);
+</script>
+</body>
+</html>

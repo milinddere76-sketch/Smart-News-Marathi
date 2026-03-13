@@ -1,0 +1,3 @@
+Environment test.
+Current directory should be: d:\Apps\Smart News Marathi
+Time: 2026-03-10

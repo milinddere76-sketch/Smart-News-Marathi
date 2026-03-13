@@ -1,14 +1,21 @@
-import './globals.css';
+import "./globals.css";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: 'स्मार्ट न्यूज मराठी | 24x7 Live News',
-  description: 'महाराष्ट्रातील सर्वात विश्वासू 24x7 AI-powered मराठी बातम्यांचे चॅनल.',
+export const metadata: Metadata = {
+  title: "VartaPravah Admin",
+  description: "Secure control dashboard for the VartaPravah live stream.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="mr">
-      <body>{children}</body>
+    <html lang="en" className="dark">
+      <body className="antialiased font-sans bg-[#0a0f1e] text-white">
+        {children}
+      </body>
     </html>
   );
 }

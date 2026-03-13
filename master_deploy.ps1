@@ -1,37 +1,22 @@
-# Smart News Marathi - Master Deployment Script
-# This script automates the entire deployment process to Fly.io
+# Smart News Marathi - Master Deployment Tool (Render Edition)
 
-$FLY = "C:\Users\Priyansh Dere\.fly\bin\flyctl.exe"
-$ROOT = "d:\Apps\Smart News Marathi"
+Write-Host "=======================================" -ForegroundColor Cyan
+Write-Host "  VartaPravah - Deployment Bridge       " -ForegroundColor Cyan
+Write-Host "=======================================" -ForegroundColor Cyan
 
-# 1. Unique App Names (Updated to avoid "Taken" errors)
-$BE_APP = "snm-be-priyansh-dere"
-$FE_APP = "snm-fe-priyansh-dere"
+Write-Host "NOTE: Fly.io deployment has been removed." -ForegroundColor Yellow
+Write-Host "The project is now configured for Render using render.yaml." -ForegroundColor Green
 
-Write-Host "--- 1. Updating App Configs ---" -ForegroundColor Cyan
-# Update backend fly.toml
-(Get-Content "$ROOT\backend\fly.toml") -replace 'app = ".*"', "app = `"$BE_APP`"" | Set-Content "$ROOT\backend\fly.toml"
-# Update frontend fly.toml
-(Get-Content "$ROOT\frontend\fly.toml") -replace 'app = ".*"', "app = `"$FE_APP`"" | Set-Content "$ROOT\frontend\fly.toml"
-(Get-Content "$ROOT\frontend\fly.toml") -replace 'NEXT_PUBLIC_API_URL = ".*"', "NEXT_PUBLIC_API_URL = `"https://$BE_APP.fly.dev`"" | Set-Content "$ROOT\frontend\fly.toml"
+Write-Host "`nSteps to Deploy:" -ForegroundColor Cyan
+Write-Host "1. Commit your changes: git add . ; git commit -m 'Migration'"
+Write-Host "2. Push to your repo: git push origin main"
+Write-Host "3. Create a Blueprint on Render (dashboard.render.com)"
 
-Write-Host "--- 2. Committing to Git ---" -ForegroundColor Cyan
-Set-Location $ROOT
-git add .
-git commit -m "Deployment: Unique app names and Pseudo-Live mode"
-git push origin main
+Write-Host "`nRender will automatically spin up:" -ForegroundColor White
+Write-Host "- Backend (FastAPI + Persistent Disk)"
+Write-Host "- Redis (Internal Queue)"
+Write-Host "- Frontend (Next.js TV Dashboard)"
+Write-Host "- Stream Engine (Background Streaming)"
 
-Write-Host "--- 3. Creating Fly Apps ---" -ForegroundColor Cyan
-& $FLY apps create $BE_APP --org personal --json | Out-Null
-& $FLY apps create $FE_APP --org personal --json | Out-Null
+Write-Host "`nVerification complete. Ready for Git push!" -ForegroundColor Green
 
-Write-Host "--- 4. Deploying Backend ---" -ForegroundColor Cyan
-Set-Location "$ROOT\backend"
-& $FLY deploy --remote-only --detach
-
-Write-Host "--- 5. Deploying Frontend ---" -ForegroundColor Cyan
-Set-Location "$ROOT\frontend"
-& $FLY deploy --remote-only --detach --build-arg NEXT_PUBLIC_API_URL="https://$BE_APP.fly.dev"
-
-Write-Host "--- DONE! ---" -ForegroundColor Green
-Write-Host "Once finished, your site will be at: https://$FE_APP.fly.dev"

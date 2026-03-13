@@ -1,10 +1,14 @@
 # Use Python as base for streaming logic
 FROM python:3.11-slim
 
-# Install FFmpeg for streaming
+# Install FFmpeg for streaming + Marathi fonts
 RUN apt-get update && apt-get install -y \
     ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
+    fonts-noto \
+    fonts-noto-cjk \
+    fonts-indic \
+    && rm -rf /var/lib/apt/lists/* \
+    && fc-cache -fv
 
 WORKDIR /app
 
@@ -14,9 +18,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Generate a placeholder video so the stream engine never crashes
-RUN mkdir -p media/assets media/ads media/video && \
-    ffmpeg -y -f lavfi -i color=c=blue:s=1920x1080:d=10 -f lavfi -i anullsrc=r=48000:cl=stereo -c:v libx264 -c:a aac -shortest media/assets/placeholder_loop.mp4
+# Ensure media directories exist
+RUN mkdir -p media/assets media/ads media/video
 
 # Environment variables
 ENV PYTHONUNBUFFERED=1
