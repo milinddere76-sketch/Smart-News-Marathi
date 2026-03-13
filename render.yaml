@@ -3,7 +3,7 @@ services:
   - type: web
     name: smart-news-backend
     env: docker
-    dockerContext: .
+    dockerContext: backend
     dockerfilePath: backend/Dockerfile
     plan: pro
     region: singapore
@@ -33,7 +33,7 @@ services:
   - type: web
     name: smart-news-frontend
     env: docker
-    dockerContext: .
+    dockerContext: frontend
     dockerfilePath: frontend/Dockerfile
     region: singapore
     envVars:
@@ -47,7 +47,7 @@ services:
   - type: worker
     name: smart-news-streamer
     env: docker
-    dockerContext: .
+    dockerContext: stream-engine
     dockerfilePath: stream-engine/Dockerfile
     region: singapore
     envVars:
