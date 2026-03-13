@@ -3,7 +3,8 @@ services:
   - type: web
     name: smart-news-backend
     env: docker
-    dockerContext: backend
+    dockerContext: .
+    dockerfilePath: backend/Dockerfile
     plan: pro
     region: singapore
     envVars:
@@ -32,7 +33,8 @@ services:
   - type: web
     name: smart-news-frontend
     env: docker
-    dockerContext: frontend
+    dockerContext: .
+    dockerfilePath: frontend/Dockerfile
     region: singapore
     envVars:
       - key: NEXT_PUBLIC_API_URL
@@ -45,7 +47,8 @@ services:
   - type: worker
     name: smart-news-streamer
     env: docker
-    dockerContext: stream-engine
+    dockerContext: .
+    dockerfilePath: stream-engine/Dockerfile
     region: singapore
     envVars:
       - key: BACKEND_URL
