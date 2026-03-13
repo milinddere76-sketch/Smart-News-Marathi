@@ -1,16 +1,15 @@
 services:
-  # 1. PostgreSQL Database (Neon.tech is managed externally, but we define the connection)
-  # 2. Backend (FastAPI)
+  # 1. Backend (FastAPI with Docker)
   - type: web
     name: smart-news-backend
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT"
+    env: docker
+    dockerContext: backend
+    dockerfilePath: Dockerfile
+    plan: pro
+    region: singapore
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: smart-news-db
-          property: connectionString
+        sync: false
       - key: REDIS_URL
         fromService:
           type: redis
@@ -18,40 +17,41 @@ services:
           property: connectionString
       - key: GEMINI_API_KEY
         sync: false
-    networks:
-      - name: smart-news-net
+      - key: PORT
+        value: 8000
+    disk:
+      name: snm-media-storage
+      mountPath: /app/media
+      sizeGB: 10
 
-  # 3. Redis (Internal for queue/cache)
+  # 2. Redis (Internal for queue/cache)
   - type: redis
     name: smart-news-redis
-    ipAllowList: [] # Only allow internal traffic
+    ipAllowList: []
 
-  # 4. Frontend (Next.js)
+  # 3. Frontend (Next.js with Docker)
   - type: web
     name: smart-news-frontend
-    env: node
-    buildCommand: "cd frontend && npm install && npm run build"
-    startCommand: "cd frontend && node .next/standalone/server.js"
+    env: docker
+    dockerContext: frontend
+    dockerfilePath: Dockerfile
+    region: singapore
     envVars:
       - key: NEXT_PUBLIC_API_URL
         fromService:
           type: web
           name: smart-news-backend
           property: host
-    networks:
-      - name: smart-news-net
 
-  # 5. Stream Engine (Background Worker)
+  # 4. Stream Engine (Background Worker with Docker)
   - type: worker
     name: smart-news-streamer
-    env: python
-    buildCommand: "cd stream-engine && pip install -r requirements.txt"
-    startCommand: "python streamer.py"
+    env: docker
+    dockerContext: stream-engine
+    dockerfilePath: Dockerfile
+    region: singapore
     envVars:
       - key: BACKEND_URL
-        fromService:
-          type: web
-          name: smart-news-backend
-          property: host
+        value: http://smart-news-backend:8000
       - key: YOUTUBE_STREAM_KEY
         sync: false
