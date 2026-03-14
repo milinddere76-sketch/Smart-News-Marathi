@@ -16,7 +16,7 @@ Usage:
 import os
 import subprocess
 import logging
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # type: ignore
 
 load_dotenv()
 logger = logging.getLogger(__name__)
@@ -72,7 +72,7 @@ def get_font_path():
     no_space_font = "D:/snm_font.ttf"
     if not os.path.exists(no_space_font):
         source_fonts = [
-            "D:/Apps/Smart News Marathi/backend/media/assets/news_font.ttf",
+            "D:/Apps/VARTAPRAVAH/backend/media/assets/news_font.ttf",
             "C:/Windows/Fonts/Nirmala.ttf",
             "C:/Windows/Fonts/arial.ttf"
         ]
@@ -94,8 +94,8 @@ def get_font_path():
 FONT = get_font_path()
 
 # ── Studio Dimensions ──────────────────────────────────────────────────────────
-ANCHOR_W = 280       # left zone width
-ANCHOR_H = 408       # content zone height (480 - top bar 40 - ticker 30 - gold 2) - must be even!
+ANCHOR_W = 420       # left zone width (matches VideoGenerator)
+ANCHOR_H = 602       # content zone height (matches VideoGenerator)
 
 class AnchorGenerator:
     def __init__(self):
@@ -190,7 +190,7 @@ class AnchorGenerator:
             )
 
             if result.returncode != 0:
-                logger.error(f"Wav2Lip failed (rc={result.returncode}):\n{result.stderr[-500:]}")
+                logger.error(f"Wav2Lip failed (rc={result.returncode}):\n{str(result.stderr)[-500:]}")  # type: ignore
                 return ""
 
             if os.path.exists(output_path) and os.path.getsize(output_path) > 0:
@@ -232,7 +232,7 @@ class AnchorGenerator:
             # Determine device (Use GPU if torch.cuda.is_available() is True)
             device_flag = "--cpu"
             try:
-                import torch
+                import torch  # type: ignore
                 if torch.cuda.is_available():
                     device_flag = "" # Use GPU (default in SadTalker)
                     logger.info("CUDA detected! Using GPU for lip-syncing (Fast).")
@@ -249,7 +249,7 @@ class AnchorGenerator:
                 "--result_dir",   os.path.abspath(sadtalker_out_dir),
                 "--still",                   
                 "--preprocess", "crop",      
-                "--size",       "256",
+                "--size",       "512",
             ]
             if device_flag:
                 cmd.append(device_flag)
@@ -411,7 +411,7 @@ class AnchorGenerator:
 
             if result.returncode != 0 or not os.path.exists(output_path) or os.path.getsize(output_path) == 0:
                 err_text = result.stderr if result.stderr else "No error output"
-                logger.error(f"FFmpeg silhouette error or file missing/empty:\n{err_text[-1000:]}")
+                logger.error(f"FFmpeg silhouette error or file missing/empty:\n{str(err_text)[-1000:]}")  # type: ignore
                 # DEBUG: Write exactly why it failed to a public text file we can fetch
                 with open("media/ffmpeg_error_log.txt", "w", encoding="utf-8") as f:
                     f.write(err_text)

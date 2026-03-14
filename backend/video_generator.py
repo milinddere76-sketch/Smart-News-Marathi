@@ -55,7 +55,7 @@ def get_font_path():
     no_space_font = "D:/snm_font.ttf"
     if not os.path.exists(no_space_font):
         source_fonts = [
-            "D:/Apps/Smart News Marathi/backend/media/assets/news_font.ttf",
+            "D:/Apps/VARTAPRAVAH/backend/media/assets/news_font.ttf",
             "C:/Windows/Fonts/nirmala.ttf",
             "C:/Windows/Fonts/Nirmala.ttf",
             "C:/Windows/Fonts/arial.ttf"
@@ -313,44 +313,51 @@ class VideoGenerator:
             hl=hl, tkr=tkr, ch=ch, brk=brk, slg=slg, now=now, has_bg=bool(bg_image)
         )
 
-        inputs = [
-            "-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:r={FPS}:d={duration}",
-            "-stream_loop", "-1", "-i", anchor_vid
-        ]
+        inputs = []
         
-        bg_idx = ""
-        anchor_idx = "[1:v]"
-        audio_idx = "2:a"
-        last_idx = 2
-
+        # 0: Color Canvas (Base)
+        inputs.extend(["-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:r={FPS}:d={duration}"])
+        canvas_idx = 0
+        
+        # 1: Anchor Video
+        inputs.extend(["-stream_loop", "-1", "-i", anchor_vid])
+        anchor_idx = 1
+        
+        next_idx = 2
+        
+        # Optional: Background
+        bg_filter = ""
         if bg_image:
             inputs.extend(["-loop", "1", "-i", bg_image])
-            last_idx += 1
-            bg_idx = f"[{last_idx}:v]scale={W}:{H},setpts=PTS-STARTPTS[broll];[0:v][broll]overlay=0:0[canvas];"
-            audio_idx = f"{last_idx+1}:a"
+            bg_filter = f"[{next_idx}:v]scale={W}:{H},setpts=PTS-STARTPTS[broll];[0:v][broll]overlay=0:0[canvas];"
+            next_idx += 1
         else:
-            bg_idx = "[0:v]copy[canvas];"
-            
+            bg_filter = "[0:v]copy[canvas];"
+
+        # Audio Input
         inputs.extend(["-i", audio])
-        audio_in_idx = last_idx + 1
-        
-        logo_overlay = ""
+        audio_idx = next_idx
+        next_idx += 1
+
+        # Optional: Logo
+        logo_filter = ""
         if logo_image:
             inputs.extend(["-i", logo_image])
-            logo_idx = audio_in_idx + 1
-            logo_overlay = f"[{logo_idx}:v]scale=90:-1[logo];[vout_pre][logo]overlay=10:5[vout];"
-            audio_final_idx = f"{audio_in_idx}:a"
+            logo_filter = f"[{next_idx}:v]scale=90:-1[logo];[vout_pre][logo]overlay=10:5[vout];"
+            next_idx += 1
         else:
-            logo_overlay = "[vout_pre]copy[vout];"
-            audio_final_idx = f"{audio_in_idx}:a"
+            logo_filter = "[vout_pre]copy[vout];"
 
+        logger.info(f"Mapping audio from input index {audio_idx}")
+
+        # Assembly
         filter_complex = (
-            f"{bg_idx}"
+            f"{bg_filter}"
             f"[canvas]{graphics}[bg_g];"
-            f"{anchor_idx}scale={ANCHOR_W}:{CONTENT_H}:force_original_aspect_ratio=decrease,format=yuv420p,"
+            f"[{anchor_idx}:v]scale={ANCHOR_W}:{CONTENT_H}:force_original_aspect_ratio=decrease,format=yuv420p,"
             f"pad={ANCHOR_W}:{CONTENT_H}:(ow-iw)/2:(oh-ih)/2:color={C_ANCHOR}[av];"
             f"[bg_g][av]overlay=0:{TOP_BAR_H}[vout_pre];"
-            f"{logo_overlay}"
+            f"{logo_filter}"
         )
 
         return [
@@ -358,7 +365,7 @@ class VideoGenerator:
             *inputs,
             "-filter_complex", filter_complex,
             "-map", "[vout]",
-            "-map", audio_final_idx,
+            "-map", f"{audio_idx}:a",
             "-c:v", "libx264", "-preset", "ultrafast", "-threads", "2",
             "-b:v", "3000k", "-maxrate", "3000k", "-minrate", "3000k",
             "-bufsize", "6000k", "-x264-params", "nal-hrd=cbr",
@@ -379,40 +386,46 @@ class VideoGenerator:
             hl=hl, tkr=tkr, ch=ch, brk=brk, slg=slg, now=now, has_bg=bool(bg_image)
         )
 
-        inputs = [
-            "-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:r={FPS}:d={duration}",
-        ]
+        inputs = []
         
-        bg_idx = ""
-        last_idx = 0
+        # 0: Color Canvas
+        inputs.extend(["-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:r={FPS}:d={duration}"])
+        canvas_idx = 0
+        next_idx = 1
+
+        # Optional: Background
+        bg_filter = ""
         if bg_image:
             inputs.extend(["-loop", "1", "-i", bg_image])
-            last_idx += 1
-            bg_idx = f"[{last_idx}:v]scale={W}:{H},setpts=PTS-STARTPTS[broll];[0:v][broll]overlay=0:0[canvas];"
+            bg_filter = f"[{next_idx}:v]scale={W}:{H},setpts=PTS-STARTPTS[broll];[0:v][broll]overlay=0:0[canvas];"
+            next_idx += 1
         else:
-            bg_idx = "[0:v]copy[canvas];"
-            
-        inputs.extend(["-i", audio])
-        audio_in_idx = last_idx + 1
+            bg_filter = "[0:v]copy[canvas];"
 
-        logo_overlay = ""
+        # Audio Input
+        inputs.extend(["-i", audio])
+        audio_idx = next_idx
+        next_idx += 1
+
+        # Optional: Logo
+        logo_filter = ""
         if logo_image:
             inputs.extend(["-i", logo_image])
-            logo_idx = audio_in_idx + 1
-            logo_overlay = f"[{logo_idx}:v]scale=90:-1[logo];[vout_pre][logo]overlay=10:5[vout];"
-            audio_final_idx = f"{audio_in_idx}:a"
+            logo_filter = f"[{next_idx}:v]scale=90:-1[logo];[vout_pre][logo]overlay=10:5[vout];"
+            next_idx += 1
         else:
-            logo_overlay = "[vout_pre]copy[vout];"
-            audio_final_idx = f"{audio_in_idx}:a"
+            logo_filter = "[vout_pre]copy[vout];"
 
-        filter_complex = f"{bg_idx}[canvas]{graphics}[vout_pre];{logo_overlay}"
+        logger.info(f"Mapping audio from input index {audio_idx}")
+
+        filter_complex = f"{bg_filter}[canvas]{graphics}[vout_pre];{logo_filter}"
 
         return [
             FFMPEG_EXE, "-y",
             *inputs,
             "-filter_complex", filter_complex,
             "-map", "[vout]",
-            "-map", audio_final_idx,
+            "-map", f"{audio_idx}:a",
             "-c:v", "libx264", "-preset", "ultrafast", "-threads", "2",
             "-b:v", "3000k", "-maxrate", "3000k", "-minrate", "3000k",
             "-bufsize", "6000k", "-x264-params", "nal-hrd=cbr",
@@ -422,6 +435,7 @@ class VideoGenerator:
             "-movflags", "+faststart",
             output,
         ]
+
 
     # ── Studio Filtergraph ─────────────────────────────────────────────────────
 
