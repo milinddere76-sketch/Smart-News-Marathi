@@ -13,7 +13,17 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 class NewsScriptWriter:
     def __init__(self):
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        # Using 'gemini-1.5-flash-latest' or 'gemini-1.5-flash' depending on version.
+        # Fallback to 'gemini-pro' if 1.5 is somehow unavailable in the account.
+        model_name = os.getenv("GEMINI_MODEL", "gemini-1.5-flash-latest")
+        try:
+            self.model = genai.GenerativeModel(model_name)
+            logger.info(f"Initialized Gemini with model: {model_name}")
+        except Exception as e:
+            logger.error(f"Failed to initialize Gemini with {model_name}: {e}")
+            self.model = genai.GenerativeModel('gemini-pro')
+            logger.info("Falling back to gemini-pro")
+
         self.marathi_prompt_base = (
             "You are a professional Marathi news writer for 'VartaPravah'. "
             "Write a concise, engaging, and professional news script in Marathi (script only, no English) "

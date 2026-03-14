@@ -15,7 +15,7 @@ python-jose[cryptography]
 passlib[bcrypt]
 
 # AI & News
-google-generativeai
+google-generativeai>=0.7.2
 feedparser
 edge-tts
 
