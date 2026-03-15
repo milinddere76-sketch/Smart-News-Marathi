@@ -29,7 +29,7 @@ env/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Media Files (Don't push large news clips)
+# Media Files (Don't push large news clips or assets)
 backend/media/audio/*
 backend/media/video/*
 !backend/media/audio/.gitkeep
@@ -42,6 +42,30 @@ media/video/*
 !media/anchor/.gitkeep
 !media/audio/.gitkeep
 !media/video/.gitkeep
+backend/news_videos/
+backend/news_audio/
+backend/news_scripts/
+backend/news_images/
+temp_build/
+*.mp4
+*.mp3
+*.wav
+*.jpg
+*.png
+*.zip
+*.tar.gz
+*.pth
+*.ckpt
+*.bin
+*.onnx
+*.weights
+checkpoint/
+checkpoints/
+gfpgan/weights/
+facelib/weights/
+backend/SadTalker/checkpoints/
+backend/SadTalker/gfpgan/
+backend/SadTalker/facelib/
 
 # Docker
 .docker_data/
