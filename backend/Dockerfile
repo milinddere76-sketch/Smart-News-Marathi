@@ -18,7 +18,20 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy requirements and install
+# Upgrade build tools and install CPU-only AI dependencies
+# Using --extra-index-url ensures that sub-dependencies of basicsr/facexlib also find CPU wheels
+ENV PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cpu
+ENV FORCE_CUDA=0
+ENV TORCH_CUDA_ARCH_LIST=""
+
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel cython && \
+    pip install --no-cache-dir \
+    torch==2.2.2 \
+    torchvision==0.17.2 \
+    torchaudio==2.2.2 \
+    numpy==1.23.4
+
+# Copy requirements and install the rest
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
